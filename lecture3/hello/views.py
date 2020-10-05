@@ -7,3 +7,6 @@ def index(request):
 
 def gui(request):
     return HttpResponse("Hello, Gui.")
+
+def greet(request, name):
+    return HttpResponse(f"Hello, {name}.")
