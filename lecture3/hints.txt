@@ -1,0 +1,3 @@
+django-admin startproject lecture3 ;; creates the project
+python manage.py runserver ;; runs severs
+python manage.py startapp hello ;; creates hello app
