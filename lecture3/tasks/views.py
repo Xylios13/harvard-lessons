@@ -1,9 +1,11 @@
 from django import forms
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 # Create your views here.
 
-tasks = ["foo", "bar", "baz"]
+tasks = []
 
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
@@ -21,6 +23,7 @@ def add(request):
         if form.is_valid():
             task = form.cleaned_data["task"]
             tasks.append(task)
+            return HttpResponseRedirect(reverse("tasks:index"))
         else:
             return render(request, "tasks/add.html", {
                 "form": form
