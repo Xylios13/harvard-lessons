@@ -11,5 +11,6 @@ def index(request):
 def flight(request, flight_id):
     flight = Flight.objects.get(id=flight_id) # or pk=flight_id (stands for primary key)
     return render(request, "flights/flight.html", {
-        "flight": flight
+        "flight": flight,
+        "passengers": flight.passengers.all()
     })
